@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
   declarations: [OfertasComponent],
   imports: [
     CommonModule, RouterModule
-  ]
+  ],
+  exports: [OfertasComponent]
 })
 export class OfertasModule { }

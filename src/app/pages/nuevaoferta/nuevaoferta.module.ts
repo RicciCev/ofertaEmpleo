@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
   declarations: [NuevaofertaComponent],
   imports: [
     CommonModule, FormsModule
-  ]
+  ],
+  exports: [NuevaofertaComponent]
 })
 export class NuevaofertaModule { }
