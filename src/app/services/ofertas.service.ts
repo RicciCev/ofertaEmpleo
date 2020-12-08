@@ -24,10 +24,14 @@ export class OfertasService {
     }
 
     public getOfertas(): void {
-        this.httpClient.get('http://localhost:8080/api/ofertas').subscribe(
+        const httpOptions = {
+            headers: new HttpHeaders()
+        };
+
+        this.httpClient.get('http://localhost:8080/api/ofertas', httpOptions).subscribe(
             (response: any) => {
                 console.log(JSON.stringify(response));
-                response = this.ofertas;
+                this.ofertas = response;
                 this.ofertas$.next(this.ofertas);
             },
             error => {
