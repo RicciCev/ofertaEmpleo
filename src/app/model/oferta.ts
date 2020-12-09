@@ -1,5 +1,5 @@
 export class Oferta {
-    id: number;
+    id: any;
     titulo: string;
     descripcion: string;
     empresa: string;
@@ -8,7 +8,6 @@ export class Oferta {
     email: string;
 
     constructor() {
-        this.id = 0;
         this.titulo = '';
         this.descripcion = '';
         this.empresa = '';

@@ -100,17 +100,16 @@ export class OfertasService {
         const httpOptions = {
             headers: new HttpHeaders(
                 {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + this.loginService.getToken()
+                    'Authorization': 'Bearer ' + this.loginService.getToken(),
+                    'Content-Type': 'application/json'
                 }
             )
         };
 
-        this.httpClient.post('http://localhost:8080/api/ofertas', JSON.stringify(ofertaModel), httpOptions).subscribe(
+        this.httpClient.post('http://localhost:8080/api/ofertas/', JSON.stringify(ofertaModel), httpOptions).subscribe(
             (response: any) => {
                 console.log(JSON.stringify(response));
                 this.addOferta(ofertaModel);
-                this.getOfertasAdmin();
             },
             error => {
                 console.log(error);
