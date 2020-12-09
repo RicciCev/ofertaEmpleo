@@ -10,6 +10,7 @@ import { LoginService } from './login.service';
 export class OfertasService {
     private ofertas: Array<Oferta>;
     private ofertas$: Subject<Array<Oferta>>;
+    private idCreateOfertas: number;
 
     constructor(
         private httpClient: HttpClient,
@@ -17,6 +18,8 @@ export class OfertasService {
         ) {
         this.ofertas = new Array<Oferta>();
         this.ofertas$ = new Subject<Array<Oferta>>();
+        // 11 porque ya tenemos 10 elementos por defecto en el array.
+        this.idCreateOfertas = 11;
     }
 
     public getOfertasSub(): Observable<any> {
@@ -25,6 +28,13 @@ export class OfertasService {
 
     public getListaOfertas(): Array<Oferta> {
         return this.ofertas;
+    }
+
+    public addOferta(item: any): void {
+        item.id = this.idCreateOfertas;
+        this.idCreateOfertas++;
+        this.ofertas.push(item);
+        this.ofertas$.next(this.ofertas);
     }
 
     public getOfertas(): void {
@@ -84,5 +94,28 @@ export class OfertasService {
                 console.log(error);
             }
         );
+    }
+
+    public postOferta(ofertaModel: Oferta) {
+        const httpOptions = {
+            headers: new HttpHeaders(
+                {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.loginService.getToken()
+                }
+            )
+        };
+
+        this.httpClient.post('http://localhost:8080/api/ofertas', JSON.stringify(ofertaModel), httpOptions).subscribe(
+            (response: any) => {
+                console.log(JSON.stringify(response));
+                this.addOferta(ofertaModel);
+                this.getOfertasAdmin();
+            },
+            error => {
+                console.log(error);
+            }
+        );
+
     }
 }
