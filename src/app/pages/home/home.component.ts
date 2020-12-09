@@ -37,4 +37,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+  public viewOferta(id: any): void {
+    this.router.navigate(['home/oferta', id]);
+  }
+
 }

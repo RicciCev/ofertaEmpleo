@@ -12,7 +12,7 @@
                 <tr *ngFor="let oferta of this.ofertas">
                     <th scope="row">{{oferta.id}}</th>
                     <td>{{oferta.titulo}}</td>
-                    <td><button type="button" class="btn btn-primary">Ver</button>
+                    <td><button type="button" class="btn btn-primary" (click)="this.viewOferta(oferta.id)">Ver</button>
                     </td>
                 </tr>
             </tbody>
