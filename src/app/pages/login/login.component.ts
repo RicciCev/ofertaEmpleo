@@ -13,12 +13,14 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   loginModel: LoginForm;
   sub: any;
+  errorCredenciales: boolean;
 
   constructor(
     private loginService: LoginService,
     private router: Router
   ) {
     this.loginModel = new LoginForm();
+    this.errorCredenciales = true;
   }
 
   ngOnInit(): void {
@@ -27,10 +29,13 @@ export class LoginComponent implements OnInit, OnDestroy {
         // recibimos el valor de la boolean isLoggedin.
         console.log(response);
         if (response) {
+          this.errorCredenciales = false;
           this.router.navigate(['ofertas']);
-        }
+        } 
       },
       error => {
+        this.errorCredenciales = true;
+        console.log(this.errorCredenciales);
         console.log(error);
       }
     );

@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   public viewOferta(id: any): void {
-    this.router.navigate(['home/oferta', id]);
+    this.router.navigate(['/home/oferta', id]);
   }
 
 }

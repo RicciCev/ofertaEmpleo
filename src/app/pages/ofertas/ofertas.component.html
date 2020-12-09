@@ -1,1 +1,21 @@
-<p>ofertas works!</p>
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titulo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- mostramos en columnas td una iteración del array de productos. -->
+                <tr *ngFor="let oferta of this.ofertas">
+                    <th scope="row">{{oferta.id}}</th>
+                    <td>{{oferta.titulo}}</td>
+                    <td><button type="button" class="btn btn-primary" (click)="this.viewOferta(oferta.id)">Ver</button></td>
+                    <td><button type="button" class="btn btn-danger" (click)="this.deleteOferta(oferta.id)">Borrar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
