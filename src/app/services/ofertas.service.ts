@@ -61,6 +61,7 @@ export class OfertasService {
             },
             error => {
                 console.log(error);
+                this.loginService.logOut();
             }
         );
     }

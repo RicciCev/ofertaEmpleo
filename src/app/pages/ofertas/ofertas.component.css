@@ -1,0 +1,9 @@
+/* BUTTON CREAR OFERTA */
+.button.block {
+    display: block;
+    width: 200px;
+}
+
+.margin-auto {
+    margin: 0 auto;
+}

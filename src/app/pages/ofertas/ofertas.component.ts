@@ -7,10 +7,9 @@ import { OfertasService } from 'src/app/services/ofertas.service';
 @Component({
   selector: 'app-ofertas',
   templateUrl: './ofertas.component.html',
-  styleUrls: ['./ofertas.component.css']
+  styleUrls: ['./ofertas.component.css'],
 })
 export class OfertasComponent implements OnInit, OnDestroy {
-
   public ofertas: Array<Oferta>;
   private sub: any;
   private subLogin: any;
@@ -31,14 +30,14 @@ export class OfertasComponent implements OnInit, OnDestroy {
       (response: Array<Oferta>) => {
         this.ofertas = response;
       },
-      error => {
+      (error) => {
         console.log(error);
       }
     );
 
     this.subLogin = this.loginService.getIsLoggedinSub().subscribe(
       (response: boolean) => {
-        if(response === false) {
+        if (response === false) {
           this.router.navigate(['login']);
         }
       },
@@ -55,13 +54,14 @@ export class OfertasComponent implements OnInit, OnDestroy {
     this.subLogin.unsubscribe();
   }
 
+  /*
   public viewOferta(id: any): void {
     this.router.navigate(['/home/oferta', id]);
   }
+  */
 
   public deleteOferta(id: number): void {
     console.log('Click ' + id);
     this.ofertasService.deleteOferta(id);
   }
-
 }

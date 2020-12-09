@@ -16,7 +16,7 @@ export class LoginService {
         this.isLoggedin = false;
         this.isLoggedin$ = new Subject<boolean>();
     }
-    
+
     public getIsLoggedin(): boolean {
         return this.isLoggedin;
     }
@@ -56,5 +56,13 @@ export class LoginService {
                 console.log(error);
             }
         );
+    }
+
+    public logOut(): void {
+        this.isLoggedin = false;
+        // se borra el token.
+        this.token = '';
+        // notificamos al componente que el estado de isLogin ha cambiado.
+        this.isLoggedin$.next(this.isLoggedin);
     }
 }
