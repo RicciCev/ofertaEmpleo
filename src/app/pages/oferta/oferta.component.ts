@@ -12,6 +12,7 @@ export class OfertaComponent implements OnInit, OnDestroy {
 
   public ofertas: Array<Oferta>;
   private sub: any
+  public id: any;
 
   constructor(
     private ofertasService: OfertasService,
@@ -33,10 +34,9 @@ export class OfertaComponent implements OnInit, OnDestroy {
 
     this.sub = this.activatedRoute.paramMap.subscribe((parms: ParamMap) => {
       // en la petición get pasamos el nombre tal cual hemos establecido en las rutas.
-      console.log('El id de la oferta es ' + parms.get('id'));
+      this.id = console.log('El id de la oferta es ' + parms.get('id'));
     });
 
-    this.ofertasService.getOfertas();
   }
 
   ngOnDestroy(): void {

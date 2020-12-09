@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { NuevaofertaModule } from './nuevaoferta/nuevaoferta.module';
-import { OfertaModule } from './oferta/oferta.module';
 import { OfertasModule } from './ofertas/ofertas.module';
+import { OfertaModule } from './oferta/oferta.module';
 
 @NgModule({
     declarations: [],

@@ -9,7 +9,7 @@
         Descripción ->
     </div>
     <div class="col-md-6" *ngFor="let oferta of this.ofertas">
-        {{oferta.descripcion}}
+        {{oferta.descripcion[this.id]}}
     </div>
     <div class="col-md-6">
         Empresa ->
