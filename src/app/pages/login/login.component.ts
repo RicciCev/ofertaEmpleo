@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router
   ) {
     this.loginModel = new LoginForm();
-    this.errorCredenciales = true;
+    this.errorCredenciales = false;
   }
 
   ngOnInit(): void {

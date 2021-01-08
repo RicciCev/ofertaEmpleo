@@ -18,7 +18,7 @@
             <div class="form-group form-check" *ngIf="this.errorCredenciales">
                 <small class="form-text">Credenciales incorrectas</small>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-primary">Enviar</button>
         </form>
     </div>
 </div>

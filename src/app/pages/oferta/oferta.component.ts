@@ -34,9 +34,11 @@ export class OfertaComponent implements OnInit, OnDestroy {
 
     this.sub = this.activatedRoute.paramMap.subscribe((parms: ParamMap) => {
       // en la petición get pasamos el nombre tal cual hemos establecido en las rutas.
-      this.id = console.log('El id de la oferta es ' + parms.get('id'));
+      console.log('El id de la oferta es ' + parms.get('id'));
+      this.id = parms.get('id');
     });
 
+    this.ofertasService.getOfertas();
   }
 
   ngOnDestroy(): void {

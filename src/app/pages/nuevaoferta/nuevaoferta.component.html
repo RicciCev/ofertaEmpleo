@@ -2,34 +2,35 @@
     <form #nuevaofertaForm="ngForm" (ngSubmit)="onSubmit(nuevaofertaForm)" class="mt-2">
         <div class="form-group">
             <label for="inputTitulo">Título</label>
-            <input type="text" class="form-control" name="titulo" #titulo [(ngModel)]="ofertaModel.titulo">
+            <!-- ngModel maxLength es un validador en el que especificamos el num máximo de caracteres que podemos escribir en el campo. -->
+            <input type="text" class="form-control" name="titulo" #titulo [(ngModel)]="ofertaModel.titulo" ngModel maxlength="100" required>
         </div>
         <div class="form-group">
             <label for="inputDescripcion">Descripción</label>
-            <textarea type="text" class="form-control" name="descripcion" #descripcion [(ngModel)]="ofertaModel.descripcion" rows="8"></textarea>
+            <textarea type="text" class="form-control" name="descripcion" #descripcion [(ngModel)]="ofertaModel.descripcion" ngModel maxlength="300" rows="8" required></textarea>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-8">
                 <label for="inputEmpresa">Empresa</label>
-                <input type="text" class="form-control" name="empresa" #empresa [(ngModel)]="ofertaModel.empresa">
+                <input type="text" class="form-control" name="empresa" #empresa [(ngModel)]="ofertaModel.empresa" ngModel maxlength="50" required>
             </div>
             <div class="form-group col-md-4">
                 <label for="inputSalario">Salario</label>
-                <input type="number" class="form-control" name="salario" #salario [(ngModel)]="ofertaModel.salario" placeholder="€">
+                <input type="number" class="form-control" name="salario" #salario [(ngModel)]="ofertaModel.salario" placeholder="€" required>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputCiudad">Ciudad</label>
-                <input type="text" class="form-control" name="ciudad" #ciudad [(ngModel)]="ofertaModel.ciudad">
+                <input type="text" class="form-control" name="ciudad" #ciudad [(ngModel)]="ofertaModel.ciudad" ngModel maxlength="50" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="inputEmail">Email</label>
-                <input type="email" class="form-control" name="email" #email [(ngModel)]="ofertaModel.email">
+                <input type="email" class="form-control" name="email" #email [(ngModel)]="ofertaModel.email" ngModel maxlength="50" required>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Crear Oferta</button>
+        <button type="submit" [disabled]="!nuevaofertaForm.form.valid" class="btn btn-primary">Crear Oferta</button>
     </form>
 </div>
